@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Заповнення даних про пацієнта</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.68/pdfmake.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.68/vfs_fonts.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <h1>Додавання даних про пацієнта</h1>
+
+  <form id="patientForm">
+    <div class="form-grid">
+      <div class="form-group">
+        <label for="medicalCardNumber">Номер медичної карти:</label>
+        <input type="text" id="medicalCardNumber" required>
+      </div>
+
+      <div class="form-group">
+        <label for="referralNumber">Номер направлення:</label>
+        <input type="text" id="referralNumber" required>
+      </div>
+
+      <div class="form-group">
+        <label for="age">Вік:</label>
+        <input type="number" id="age" required>
+      </div>
+
+      <div class="form-group">
+        <label for="gender">Стать:</label>
+        <select id="gender" required>
+          <option value="чоловік">Чоловік</option>
+          <option value="жінка">Жінка</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="birthDate">Дата народження:</label>
+        <input type="date" id="birthDate" required>
+      </div>
+
+      <div class="form-group">
+        <label for="previousDiagnosis">Попередній діагноз:</label>
+        <input type="text" id="previousDiagnosis" required>
+      </div>
+
+      <div class="form-group">
+        <label for="allergies">Алергії:</label>
+        <input type="text" id="allergies">
+      </div>
+
+      <div class="form-group">
+        <label for="additionalExaminations">Додаткові обстеження:</label>
+        <textarea id="additionalExaminations" rows="4" required></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="photo">Фото результатів обстежень:</label>
+        <input type="file" id="photo">
+      </div>
+
+      <div class="form-group">
+        <label for="conclusion">Висновок:</label>
+        <textarea id="conclusion" rows="4" required></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="diagnosis">Діагноз:</label>
+        <textarea id="diagnosis" rows="4" required></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="prescriptions">Призначення:</label>
+        <textarea id="prescriptions" rows="4" required></textarea>
+      </div>
+    </div>
+
+    <button type="submit" id="generatePdfButton">Сформувати PDF</button>
+  </form>
+
+  <div id="pdfViewer"></div>
+  <a href="#" id="downloadLink" style="display: none">Завантажити PDF</a>
+  <script src="script.js"></script>
+</body>
+
+</html>
