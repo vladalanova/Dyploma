@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Видача направлень</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.68/pdfmake.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.68/vfs_fonts.js"></script>
+  <link rel="stylesheet" href="r_styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<style>
+  body {
+    font-family: "Montserrat", sans-serif;
+    background-color: rgb(242, 242, 242);
+    margin: 0;
+    padding: 0;
+  }
+  
+  h1 {
+    text-align: center;  
+    color: #333;
+  }
+  
+  form {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(51, 12, 12, 0.1);
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+  
+  .form-group {
+    margin-bottom: 10px;
+  }
+  
+  label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 3px;
+  }
+  
+  input, 
+  select,
+  textarea {
+    width: calc(100% - 12px);
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-sizing: border-box;
+    font-size: 12px;
+  }
+  
+  button {
+    background-color: #137e17;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 12px;
+    margin-top: 10px;
+    grid-column: span 2;
+  }
+  
+  button:hover {
+    background-color: #45a049;
+  }
+</style>
+
+
+<body>
+
+  <h1>Форма видачі направлень</h1>
+
+  <form id="directionForm">
+
+    <!-- <div class="form-group">
+      <label for="referralNumber">№ направлення:</label>
+      <input type="text" id="referralNumber" required>
+    </div> -->
+
+    <div class="form-group">
+      <label for="doctorName">Спеціаліст:</label>
+      <input type="text" id="doctorName" required>
+    </div>
+
+    <div class="form-group">
+      <label for="examinationName">Назва обстеження:</label>
+      <input type="text" id="examinationName" required>
+    </div>
+
+    <div class="form-group">
+      <label for="patientFullName">ПІБ пацієнта:</label>
+      <input type="text" id="patientFullName" required>
+    </div>
+
+    <div class="form-group">
+      <label for="previousDiagnosis">Попередній діагноз:</label>
+      <input type="text" id="previousDiagnosis" required>
+    </div>
+
+    <div class="form-group">
+      <label for="issueDate">Дата виписування направлення:</label>
+      <input type="date" id="issueDate" required>
+    </div>
+
+    <div class="form-group">
+      <label for="priority">Пріоритет:</label>
+      <input type="text" id="priority" required>
+    </div>
+
+    <div class="form-group">
+      <label for="expiryDate">Термін придатності:</label>
+      <input type="date" id="expiryDate" required>
+    </div>
+
+    <div class="form-group">
+      <label for="patientID">№ медичної картки пацієнта:</label>
+      <input type="text" id="patientID" required>
+    </div>
+    <div class="form-group">
+    <label for="phoneNumber">Номер телефону пацієнта:</label>
+<input type="text" id="phoneNumber" name="phoneNumber" required>
+</div>
+<div class="form-group">
+  <label for="email">Електронна пошта пацієнта:</label>
+<input type="text" id="email" name="email" required>
+</div>
+    <div class="form-group">
+      <label for="serviceCode">Код послуги:</label>
+      <input type="text" id="serviceCode" required>
+    </div>
+
+    <div class="form-group">
+      <label for="doctorID">№ ліцензії лікаря:</label>
+      <input type="text" id="doctorID" required>
+    </div>
+
+    <div class="form-group">
+      <label for="healthCareFacility">Найменування закладу охорони здоров’я:</label>
+      <input type="text" id="healthCareFacility" required>
+    </div>
+
+    <div class="form-group">
+      <label for="healthCareCode">Код за ЄДРПОУ/РНОКПП:</label>
+      <br>
+      <input type="text" id="healthCareCode" required>
+    </div>
+
+    <button type="submit" id="generatePdfButton">Сформувати PDF</button>
+
+  </form>
+
+  <div id="pdfViewer">
+  </div>
+  <a href="#" id="downloadLink" style="display: none">Завантажити PDF</a>
+  <script src="referrals.js"></script>
+</body>
+
+</html>
